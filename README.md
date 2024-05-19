@@ -6,6 +6,10 @@ This project is a Loan Management System designed to handle loan creation, appro
 1. **Approver**: Can approve loan requests.
 2. **Borrower**: Can borrow loans.
 
+Main Logic:
+1. **loan**: Loan folder contains logic about all the loan api and its model
+2. **users**: User contains logic about users. Only required funcitonality is implemented here.
+
 ## POSTMAN
 ### Collection is attached in json format.
 
