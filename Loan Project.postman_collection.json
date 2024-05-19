@@ -1,0 +1,990 @@
+{
+	"info": {
+		"_postman_id": "771fcd94-0899-4a50-ac0d-cdcc0d76be21",
+		"name": "Loan Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14174578"
+	},
+	"item": [
+		{
+			"name": "Create Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Email",
+						"value": "john.doe@example.com",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Password",
+						"value": "EVB0D24W",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 10000,\n    \"tenure\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/loans/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loans",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Loan Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Email",
+								"value": "john.doe@example.com",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenure\": 5,\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:29:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "146"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Success\": \"Loan Request Successfully Submitted with ID 243da209-0c5c-4fbf-bf85-1e1022817aed\",\n    \"loan_id\": \"243da209-0c5c-4fbf-bf85-1e1022817aed\"\n}"
+				},
+				{
+					"name": "Create Loan Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Email",
+								"value": "john.doe@example.com",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenure\": 5,\n    \"amount\": 10000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"create"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:30:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"Please select an amount less than equals to 1000000\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Loan Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-Password",
+						"value": "EVB0D24W",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Email",
+						"value": "john.doe@example.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/loans/aa1e227e-43fa-465b-a4eb-d80fb37358c1/fetch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loans",
+						"aa1e227e-43fa-465b-a4eb-d80fb37358c1",
+						"fetch"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Loan Info Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Email",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/fetch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"fetch"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:30:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"243da209-0c5c-4fbf-bf85-1e1022817aed\",\n    \"amount\": 10000,\n    \"tenure\": 5,\n    \"status\": \"pending\",\n    \"paid\": false,\n    \"borrower_id\": \"0bf738cb-ae20-411d-baad-b5e2812e16a6\",\n    \"approver_id\": null,\n    \"issued_at\": \"2024-05-19T18:29:47.724665+00:00\",\n    \"approved_at\": null,\n    \"paid_at\": null,\n    \"payment_strategy\": \"weekly\"\n}"
+				},
+				{
+					"name": "Fetch Loan Info Failure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Email",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/loans/xyz/fetch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"xyz",
+								"fetch"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:31:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"No Loan xyz is associated to you\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Approve Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Password",
+						"value": "YOh5D5Hr",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Email",
+						"value": "jim.beams@example.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loans",
+						"243da209-0c5c-4fbf-bf85-1e1022817aed",
+						"approve"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Approve Loan Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "YOh5D5Hr",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Email",
+								"value": "jim.beams@example.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"approve"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:31:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Loan\": \"243da209-0c5c-4fbf-bf85-1e1022817aed\",\n    \"status\": \"Approved\"\n}"
+				},
+				{
+					"name": "Approve Loan Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "YOh5D5Hr",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Email",
+								"value": "jim.beams@example.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"approve"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:32:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"Loan with Id 243da209-0c5c-4fbf-bf85-1e1022817aed is already approved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Repayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Password",
+						"value": "EVB0D24W",
+						"type": "text"
+					},
+					{
+						"key": "X-User-EMAIL",
+						"value": "john.doe@example.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loans",
+						"243da209-0c5c-4fbf-bf85-1e1022817aed",
+						"repayment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Repayment Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-EMAIL",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"repayment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:32:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Repayment successful\"\n}"
+				},
+				{
+					"name": "Repayment Failure Insufficient Amount",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-EMAIL",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"repayment"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:33:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"Minimum allowed amount is 2000.0\"\n}"
+				},
+				{
+					"name": "Repayment More Than Required Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-EMAIL",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 4005\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"repayment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:33:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Repayment successful\"\n}"
+				},
+				{
+					"name": "Repayment Success with OverPayment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-EMAIL",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 4005\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"repayment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:34:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Repayment successful with overpayment\",\n    \"overpayment\": 10\n}"
+				},
+				{
+					"name": "Already Paid Load",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Password",
+								"value": "EVB0D24W",
+								"type": "text"
+							},
+							{
+								"key": "X-User-EMAIL",
+								"value": "john.doe@example.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 4005\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/loans/243da209-0c5c-4fbf-bf85-1e1022817aed/repayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"loans",
+								"243da209-0c5c-4fbf-bf85-1e1022817aed",
+								"repayment"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 18:34:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"Loan is already paid\"\n}"
+				}
+			]
+		}
+	]
+}
