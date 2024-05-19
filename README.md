@@ -30,7 +30,7 @@ Main Logic:
    source venv/bin/activate
 3. Install Requirement:
    ```sh
-   pip isntall -r requirements.txt
+   pip install -r requirements.txt
 
 ### Step 2: Postgres Database Setup
 1. Create databse:
@@ -48,7 +48,7 @@ Main Logic:
 
 
 ### Step 3: Create Postgres Tables
-1. Run Command:
+1. Run Command from directory where loan project is present:
    ```sh
    python manage.py migrate;
 
