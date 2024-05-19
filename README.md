@@ -2,7 +2,8 @@
 
 ## Project Overview
 
-This project is a Loan Management System designed to handle loan creation, approval, and repayment processes. The system supports two user roles:
+This project is a Loan Management System designed to handle loan creation, approval, and repayment processes. This is created using python with Django Framework.
+The system supports two user roles:
 1. **Approver**: Can approve loan requests.
 2. **Borrower**: Can borrow loans.
 
